@@ -1,3 +1,7 @@
+import { EditIcon, RemoveIcon } from '..';
+
+import { useAppSelector } from '../../hooks/store';
+
 import {
 	Badge,
 	Card,
@@ -9,35 +13,10 @@ import {
 	TableRow,
 	Title
 } from '@tremor/react';
-import { EditIcon, RemoveIcon } from '..';
 
-const users: {
-    id: string,
-    name: string,
-    email: string,
-    github: string,
-}[] = [
-    {
-        id: '1',
-        name: 'Yazman Rodríguez',
-        email: 'yazmanito@gmail.com',
-        github: 'yazmanito',
-    },
-    {
-        id: '2',
-        name: 'John Doe',
-        email: 'leo@gmail.com',
-        github: 'leo',
-    },
-    {
-        id: '3',
-        name: 'Haakon Dahlberg',
-        email: 'haakon@gmail.com',
-        github: 'haakon',
-    },
-];
 
 export function ListOfUsers () {
+    const users = useAppSelector(state => state.users);
   
     return (
       <Card>
@@ -56,7 +35,7 @@ export function ListOfUsers () {
             </TableHead>
             <TableBody>
                 {users.map(user => 
-                    <TableRow>
+                    <TableRow key={user.id}>
                         <TableCell>{user.id}</TableCell>
                         <TableCell className='flex items-center gap-2'>
                             <img 
