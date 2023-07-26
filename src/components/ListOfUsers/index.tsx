@@ -1,6 +1,9 @@
 import { EditIcon, RemoveIcon } from '..';
 
 import { useAppSelector } from '../../hooks/store';
+import { useUserActions } from '../../hooks/useUserActions';
+
+import type { UserId } from '../../types/user';
 
 import {
 	Badge,
@@ -17,6 +20,9 @@ import {
 
 export function ListOfUsers () {
     const users = useAppSelector(state => state.users);
+    const { removeUser } = useUserActions();
+
+    const handlerOnClickRemoveUser = (id: UserId) => () => removeUser(id);
   
     return (
       <Card>
@@ -48,7 +54,7 @@ export function ListOfUsers () {
                         <TableCell>{user.email}</TableCell>
                         <TableCell>
                             <button><EditIcon /></button>
-                            <button><RemoveIcon /></button>
+                            <button onClick={handlerOnClickRemoveUser(user.id)}><RemoveIcon /></button>
                         </TableCell>
                     </TableRow>
                 )}
