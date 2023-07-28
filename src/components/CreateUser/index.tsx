@@ -50,7 +50,7 @@ export function CreateUser() {
                  />
                  <div className='flex gap-2 items-center'>
                     <Button 
-                        className='rounded-lg'
+                        className='bg-sky-500 rounded-lg'
                         type='submit'
                     >
                         Crear

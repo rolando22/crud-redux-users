@@ -28,7 +28,7 @@ export function ListOfUsers () {
       <Card>
         <Title className='flex gap-2'>
             Usuarios
-            <Badge className='rounded-full bg-sky-500'>{users.length}</Badge>
+            <Badge className='rounded-full bg-sky-200 text-sky-500'>{users.length}</Badge>
         </Title>
         <Table>
             <TableHead>
