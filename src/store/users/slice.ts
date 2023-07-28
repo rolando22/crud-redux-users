@@ -4,19 +4,19 @@ import { User, UserWithId } from "../../interfaces/User";
 
 const DEFAULT_STATE = [
     {
-        id: '1',
+        id: crypto.randomUUID(),
         name: 'Yazman Rodríguez',
         email: 'yazmanito@gmail.com',
         github: 'yazmanito',
     },
     {
-        id: '2',
+        id: crypto.randomUUID(),
         name: 'John Doe',
         email: 'leo@gmail.com',
         github: 'leo',
     },
     {
-        id: '3',
+        id: crypto.randomUUID(),
         name: 'Haakon Dahlberg',
         email: 'haakon@gmail.com',
         github: 'haakon',
@@ -40,6 +40,10 @@ export const usersSlice = createSlice({
             const id = action.payload;
             return state.filter(user => user.id !== id);
         },
+        updateUser: (state, action: PayloadAction<UserWithId>) => {
+            const index = state.findIndex(user => user.id === action.payload.id);
+            state[index] = action.payload;
+        },
         rollbackUser: (state, action: PayloadAction<UserWithId>) => {
             const isUserAlreadyDefined = state.some(user => user.id === action.payload.id);
             if (!isUserAlreadyDefined) state.push({ ...action.payload });
@@ -48,4 +52,4 @@ export const usersSlice = createSlice({
 });
 
 export default usersSlice.reducer;
-export const { addNewUser, deleteUserById, rollbackUser } = usersSlice.actions;
+export const { addNewUser, deleteUserById, updateUser, rollbackUser } = usersSlice.actions;

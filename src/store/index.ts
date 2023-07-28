@@ -3,8 +3,10 @@ import usersReducer, { rollbackUser } from './users/slice';
 import { toast } from "sonner";
 
 const persistanceLocalStorageMiddleware: Middleware = (store) => (next) => (action) => {
+    const { type } = action;
     next(action);
     localStorage.setItem('users_redux', JSON.stringify(store.getState()));
+    if (type === 'users/addNewUser' || type === 'users/updateUser') toast.success('Guardado correctamente');
 };
 
 const syncWithDatabaseMiddleware: Middleware = (store) => (next) => (action) => {

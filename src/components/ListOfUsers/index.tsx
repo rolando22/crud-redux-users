@@ -2,6 +2,7 @@ import { EditIcon, RemoveIcon } from '..';
 
 import { useAppSelector } from '../../hooks/store';
 import { useUserActions } from '../../hooks/useUserActions';
+import { UserWithId } from '../../interfaces/User';
 
 import type { UserId } from '../../types/user';
 
@@ -17,11 +18,15 @@ import {
 	Title
 } from '@tremor/react';
 
+interface Props {
+    loadUserEdit: (user: UserWithId) => void
+}
 
-export function ListOfUsers () {
+export function ListOfUsers ({ loadUserEdit }: Props) {
     const users = useAppSelector(state => state.users);
     const { removeUser } = useUserActions();
 
+    const handlerOnClickLoadUserEdit = (user: UserWithId) => () => loadUserEdit(user);
     const handlerOnClickRemoveUser = (id: UserId) => () => removeUser(id);
   
     return (
@@ -53,7 +58,7 @@ export function ListOfUsers () {
                         </TableCell>
                         <TableCell>{user.email}</TableCell>
                         <TableCell>
-                            <button><EditIcon /></button>
+                            <button onClick={handlerOnClickLoadUserEdit(user)}><EditIcon /></button>
                             <button onClick={handlerOnClickRemoveUser(user.id)}><RemoveIcon /></button>
                         </TableCell>
                     </TableRow>
