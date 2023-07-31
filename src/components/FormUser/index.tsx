@@ -51,7 +51,7 @@ export function FormUser({ id, name, email, github, loadUserEdit }: Props) {
     };
 
     return (
-        <Card className='grid gap-4'>
+        <Card className='grid gap-4 border-2 border-sky-500'>
             <Title>{title}</Title>
             <form 
                 className='grid gap-4'

@@ -30,10 +30,10 @@ export function ListOfUsers ({ loadUserEdit }: Props) {
     const handlerOnClickRemoveUser = (id: UserId) => () => removeUser(id);
   
     return (
-      <Card>
+      <Card className='border-2 border-sky-500'>
         <Title className='flex gap-2'>
             Usuarios
-            <Badge className='rounded-full bg-sky-200 text-sky-500'>{users.length}</Badge>
+            <Badge className='rounded-full bg-sky-200 text-sky-600 font-bold'>{users.length}</Badge>
         </Title>
         <Table>
             <TableHead>
