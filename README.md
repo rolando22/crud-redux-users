@@ -1,27 +1,17 @@
-# React + TypeScript + Vite
+# Repositorio proyecto CRUD Users con React & Redux
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+El proyecto fue creado mientras realizaba el curso de React 2023 de Midudev [CRUD con React Redux Toolkit + Rome Tools y Tremor](https://www.youtube.com/@midulive).
 
-Currently, two official plugins are available:
+Este repositorio contiene el código de una aplicación que gestiona el CRUD de usuarios con Redux toolkit.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Desarrollada con React para manipulación del DOM y reactividad de la aplicación.
+- Vite como empaquetador y SWC como transpilador.
+- TypeScript para el tipado del código.
+- Redux toolkit para gestionar el estado global de la app.
+- Tremor para componentes y TailWindCSS para estilos.
+- Sonner para generar notificaciones en la app.
+- Uso de customHooks:
+    - Para el manejo del store de Redux.
+    - Para manejar las actions del slice de usuarios.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Puedes ver el demo aquí: (https://rolando22.github.io/crud-redux-users/).
